@@ -7,15 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  bgColor: string = "";
+  bgColor?: string;
   random_bg_color() {
-    const x = Math.floor(Math.random() * 255);
-    const y = Math.floor(Math.random() * 255);
-    const z = Math.floor(Math.random() * 255);
-
-    this.bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
+    this.bgColor = "rgb(" + this.random_color() + "," + this.random_color()  + "," + this.random_color()  + ")"; 
     }
 
-    name = ""
+    random_color(){
+      return Math.floor(Math.random() * 255);
+    }
+
+    name = "";
+    username = "akshat";
 
 }

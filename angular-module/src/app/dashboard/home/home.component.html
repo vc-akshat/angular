@@ -4,6 +4,7 @@
 
 <button (click)="random_bg_color()">change color</button>
 
-<div class="color-change" [style.background] = "bgColor">
+<div class="color-change" [style.background] = "bgColor"></div>
 
-</div>
+<input type="text" [(ngModel)] = "name"><br>
+hello {{name}}

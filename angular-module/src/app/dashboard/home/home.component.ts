@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  bgColor = "";
+  bgColor: string = "";
   random_bg_color() {
     const x = Math.floor(Math.random() * 255);
     const y = Math.floor(Math.random() * 255);
@@ -15,4 +15,7 @@ export class HomeComponent {
 
     this.bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
     }
+
+    name = ""
+
 }

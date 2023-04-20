@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+    height: 440px;
+}
+
+.sidebar{
+    border: 5px solid var(--green);
+    width: 20%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home{
+    border: 5px solid var(--orange);
+    width: 79%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

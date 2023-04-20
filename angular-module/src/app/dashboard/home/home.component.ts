@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  bgColor = ""
+  bgColor = "";
   random_bg_color() {
-    var x = Math.floor(Math.random() * 255);
-    var y = Math.floor(Math.random() * 255);
-    var z = Math.floor(Math.random() * 255);
+    const x = Math.floor(Math.random() * 255);
+    const y = Math.floor(Math.random() * 255);
+    const z = Math.floor(Math.random() * 255);
 
     this.bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
-    console.log(this.bgColor)
+    console.log(this.bgColor);
     }
 }

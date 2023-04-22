@@ -1,11 +1,10 @@
 <div>
     <h1>Home</h1>
+    <app-child-home 
+        (newColorEvent)="generateColor($event)">    
+    </app-child-home>
 </div>
-
-<button (click)="random_bg_color()">change color</button>
 
 <div class="color-change" [style.background] = "bgColor"></div>
 
-<input type="text" [(ngModel)] = "name"><br><br>
-hello {{name}}<br>
-{{username}}
+

@@ -7,16 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  bgColor?: string;
-  random_bg_color() {
-    this.bgColor = "rgb(" + this.random_color() + "," + this.random_color()  + "," + this.random_color()  + ")"; 
-    }
-
-    random_color(){
-      return Math.floor(Math.random() * 255);
-    }
-
-    name = "";
-    username = "akshat";
-
+  bgColor: string = 'red';
+  generateColor(value: number): void {
+    this.bgColor = `rgb(${value},${value},${value})`;
+  }
 }

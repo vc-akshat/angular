@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  bgColor: string = 'red';
-  generateColor(value: number): void {
-    this.bgColor = `rgb(${value},${value},${value})`;
+  bgColor = 'red';
+
+  generateColor(value: string): void {
+    this.bgColor = `rgb(${value})`;
   }
 }

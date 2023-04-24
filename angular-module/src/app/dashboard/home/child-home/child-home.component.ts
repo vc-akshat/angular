@@ -8,17 +8,21 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ChildHomeComponent {
 
-  @Input() color: string = 'red';
+  @Input() color?: string;  
 
-  @Output() newColorEvent = new EventEmitter<number>();
+  @Output() newColorEvent = new EventEmitter<string>();
 
   addRandomColor(): void {
-    let value = this.generateRandomColor()
+    let value = this.generateRandomColor();
     console.log(value);
     this.newColorEvent.emit(value);
   }
 
-  generateRandomColor():number {
-    return Math.floor(Math.random() * 255);
+  generateRandomColor(): string {
+
+    const a = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}`;
+    return a;
+
+    // return Math.floor(Math.random() * 255);
   }
 }

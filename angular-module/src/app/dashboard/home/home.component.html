@@ -1,6 +1,7 @@
 <div>
     <h1>Home</h1>
-    <app-child-home 
+    <app-child-home
+        [color] = "bgColor"
         (newColorEvent)="generateColor($event)">    
     </app-child-home>
 </div>

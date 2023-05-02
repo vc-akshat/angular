@@ -1,0 +1,24 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of userData">
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td><button (click)="click(user)">click me</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<a routerLink="password">passsword</a>
+<br><br>
+
+<router-outlet></router-outlet>

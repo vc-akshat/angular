@@ -1,0 +1,77 @@
+<div class="container">
+<form #submit="ngForm" (ngSubmit)="onSubmit(submit)" novalidate>
+ 
+  <p>
+    <label for="firstname">First Name <span>*</span></label><br>
+    <input type="text" name="firstname" minlength="5" #firstname="ngModel" required ngModel><br>
+    <span *ngIf="firstname.touched || submit.submitted">
+      <span *ngIf="firstname.errors?.required">Firstname is required</span>
+    </span>
+  </p>
+
+  <p>
+    <label for="email">Email <sup>*</sup></label><br>
+    <input type="email" name="email" email #email="ngModel" required ngModel><br>
+    <span *ngIf="email.touched || submit.submitted">
+      <span *ngIf="email.errors?.required">Email is required
+        
+      </span>
+      <span *ngIf="email.errors?.email">Enter valid email</span>
+    </span>
+  </p>
+
+  <p>
+    <label for="password">Password <sup>*</sup></label><br>
+    <input type="password" name="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" #password="ngModel" required ngModel><br>
+    <span *ngIf="password.touched || submit.submitted">
+      <span *ngIf="password.errors?.required">password is required</span>
+      <span *ngIf="password.errors?.pattern">
+        <pre>At least 
+- One uppercase letter,
+- One lowercase letter,
+- One special character,
+- One number</pre></span>
+    </span>
+  </p>
+
+  <p>
+    <label for="mobileNumber">Mobile Number <sup>*</sup></label><br>
+    <input type="text" name="mobileNumber" appNumberValidation #mobileNumber="ngModel" minlength="10" maxlength="10" required ngModel><br>
+    <span *ngIf="(mobileNumber.touched || submit.submitted) && mobileNumber.errors">
+      <span>Enter 10 digit number</span>
+    </span>
+  </p>
+
+  <fieldset ngModelGroup="address">
+    <legend>Address</legend>
+    <p>
+      <label for="street">Street</label><br>
+      <input type="text" name="street" ngModel>
+    </p>
+    <p>
+      <label for="city">City</label><br>
+      <input type="text" name="city" ngModel>
+    </p>
+    <p>
+      <label for="pinCode">Pincode <sup>*</sup></label><br>
+      <input type="text" name="pinCode" #pinCode="ngModel" required ngModel appNumberValidation minlength="6" maxlength="6"><br>
+      <span *ngIf="pinCode.touched || submit.submitted">
+        <span *ngIf="pinCode.errors">Enter 6 digit pin-code number</span>
+      </span>
+    </p>
+  </fieldset>
+
+  <p class="btn">
+    <button type="submit">Submit</button>
+  </p>
+</form>
+</div>
+
+<h3>value: {{submit.value | json}}</h3>
+<h3>valid: {{submit.valid}}</h3>
+<h3>Invalid: {{submit.invalid}}</h3>
+<h3>touched: {{submit.touched}}</h3>
+<h3>untouched: {{submit.untouched}}</h3>
+<h3>submit: {{submit.submitted}}</h3>
+<h3>pristine: {{submit.pristine}}</h3>
+<h3>dirty: {{submit.dirty}}</h3>

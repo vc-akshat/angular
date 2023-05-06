@@ -1,0 +1,54 @@
+<div class="formPosition">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label for="userName">Name <span>*</span></label><br>
+            <input type="text" name="userName" formControlName="userName" required /><br>
+            <span *ngIf="(userName?.touched || userName?.dirty) && userName?.invalid">Name Required</span>
+        </p>
+        <p>
+            <label for="userEmail">Email <span>*</span></label><br>
+            <input type="email" name="userEmail" formControlName="userEmail" required /><br>
+            <span *ngIf="(userEmail?.touched || userEmail?.dirty) && userEmail?.invalid">
+                <span [hidden]="!userEmail?.errors?.email">Enter valid email</span>
+                <span [hidden]="!userEmail?.errors?.required">Email Required</span>
+            </span>
+        </p>
+        <p>
+            <label for="address">Address <span>*</span></label><br>
+            <input type="text" name="address" formControlName="address" required /><br>
+            <span *ngIf="(address?.touched || address?.dirty) && address?.invalid">Address Required</span>
+        </p>
+        <p>
+            <label for="creditCardNumber">Credit Card Number <span>*</span></label><br>
+            <input type="text" name="creditCardNumber" formControlName="creditCardNumber" required /><br>
+            <span *ngIf="(creditCardNumber?.touched || creditCardNumber?.dirty) && creditCardNumber?.invalid">Credit
+                Card Number Required</span>
+        </p>
+        <p>
+            <label for="expirationYear">Expiration Date <span>*</span></label><br>
+            <input class="expiration" type="text" name="expirationMonth" formControlName="expirationMonth"
+                placeholder="MM" maxlength="2" required />
+            <input class="expiration" type="text" name="expirationYear" formControlName="expirationYear"
+                placeholder="YYYY" maxlength="4" required /><br>
+            <span *ngIf="(expirationMonth?.touched || expirationMonth?.dirty) && expirationMonth?.invalid">
+                <span [hidden]="!expirationMonth?.errors?.pattern">Enter Valid Month (01-12)</span>
+                <span [hidden]="!expirationMonth?.errors?.required">Month Required</span>
+            </span>
+            <span *ngIf="(expirationYear?.touched || expirationYear?.dirty) && expirationYear?.invalid">
+                <span [hidden]="!expirationYear?.errors?.pattern">Enter valid year (2000-2055)</span>
+                <span [hidden]="!expirationYear?.errors?.required">Year Required</span>
+            </span>
+        </p>
+        <p>
+            <label for="cvvNumber">CVV <span>*</span></label><br>
+            <input type="text" name="cvvNumber" formControlName="cvvNumber" maxlength="3" required /><br>
+            <span *ngIf="(cvvNumber?.touched || cvvNumber?.dirty) && cvvNumber?.invalid">
+                <span [hidden]="!cvvNumber?.errors?.required">CVV Required </span>
+                <span [hidden]="!cvvNumber?.errors?.pattern">Only Enter 3 digit </span>
+            </span>
+        </p>
+        <p>
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+        </p>
+    </form>
+</div>

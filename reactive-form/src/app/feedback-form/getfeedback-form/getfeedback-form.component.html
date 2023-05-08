@@ -1,0 +1,41 @@
+<div class="main">
+<form [formGroup]="feedbackValidation" (ngSubmit)="feedbackValidation.value && onSubmit()">
+    <p>
+        <label for="firstName">First Name</label><br>
+        <input type="text" name="firstName" id="firstName" formControlName="firstName"><br>
+        <span *ngIf="(firstName?.touched || firstName?.dirty) && firstName?.invalid">First Name Required</span>
+    </p>
+    <p>
+        <label for="Email">Email</label><br>
+        <input type="text" name="Email" id="Email" formControlName="Email"><br>
+        <span *ngIf="(Email?.touched || Email?.dirty) && Email?.invalid">
+            <span *ngIf="Email?.errors?.email">Enter proper Email</span>
+            <span *ngIf="Email?.errors?.required">Email required</span>
+        </span>
+    </p>
+    <p>
+        <label for="rating">Rating </label><br>
+        <select id="star" name="rating" formControlName="rating">
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select><br>
+        <span *ngIf="(rating?.touched || rating?.dirty) && rating?.invalid">Rating Required</span>
+    </p>
+    <p>
+        <label for="comments">Comments</label><br>
+        <textarea rows="5" type="text" name="comments" id="comments" formControlName="comments"></textarea><br>
+        <span *ngIf="(comments?.touched || comments?.dirty) && comments?.invalid">Comments Required</span>
+    </p>
+
+    <p>
+        <button type="submit">Click Here</button>
+    </p>
+</form>
+</div>
+
+
+
+{{feedbackValidation.value}}

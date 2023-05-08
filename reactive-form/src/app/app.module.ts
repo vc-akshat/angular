@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutFormModule } from './checkout-form/checkout-form.module';
 import { FeedbackFormModule } from './feedback-form/feedback-form.module';
+import { PasswordValidationModule } from './password-validation/password-validation.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FeedbackFormModule } from './feedback-form/feedback-form.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CheckoutFormModule,
-    FeedbackFormModule
+    FeedbackFormModule,
+    PasswordValidationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

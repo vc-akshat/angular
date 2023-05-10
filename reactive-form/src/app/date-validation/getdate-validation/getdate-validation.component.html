@@ -1,0 +1,20 @@
+<form class="main" [formGroup]="dateValidation" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="startDate">Start Date</label><br>
+        <input type="date" name="startDate" formControlName="startDate"><br>
+        <span *ngIf="(startDate?.touched || startDate?.dirty) && startDate?.invalid">
+            select start date</span>
+    </p>
+    <p>
+        <label for="endDate">End Date</label><br>
+        <input type="date" name="endDate" formControlName="endDate"><br>
+        <span *ngIf="(endDate?.touched || endDate?.dirty) && endDate?.invalid">
+            <span [hidden]="!startDate?.errors?.properValue">enter valid date</span>
+            <span [hidden]="!startDate?.errors?.required">select end date</span>
+        </span>
+    </p>
+    
+    <p>
+        <button type="submit">Click me</button>
+    </p>
+</form>

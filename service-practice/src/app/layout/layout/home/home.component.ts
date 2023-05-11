@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggerServiceService } from 'src/app/core/services/logger-service.service'; 
+import { LoggerServiceService } from 'src/app/core/services/logger-service.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,9 @@ import { LoggerServiceService } from 'src/app/core/services/logger-service.servi
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private logger: LoggerServiceService) {}
+  constructor(private logger: LoggerServiceService) { }
 
-  ngOnInit() { 
-    this.logger.log('hello');
+  ngOnInit(): void {
+    this.logger.getApi("8").subscribe(data => console.log(data));
   }
-
 }

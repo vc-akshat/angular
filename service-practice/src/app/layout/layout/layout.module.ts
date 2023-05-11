@@ -3,20 +3,22 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ]
 })
 export class LayoutModule { }

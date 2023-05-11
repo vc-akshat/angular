@@ -1,1 +1,24 @@
-<button (click)="set()">click</button>
+<form #submitForm="ngForm" >
+    <p>
+        <label for="id">Id: </label><br>
+        <input type="text" name="id" #id="ngModel" ngModel>
+    </p>
+    <p>
+        <label for="name">Name: </label><br>
+        <input type="text" name="name" #name="ngModel" ngModel>
+    </p>
+    <p>
+        <label for="age">Age: </label><br>
+        <input type="text" name="age" #age="ngModel" ngModel>
+    </p>
+    
+    <p>
+        <button (click)="onSubmit(submitForm.value)" >Submit </button>
+    </p>
+</form>
+
+<div *ngFor="let userData of userData">
+    {{userData.id}}
+    {{userData.name}}
+    {{userData.age}}
+</div>
